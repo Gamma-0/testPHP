@@ -12,7 +12,7 @@ The main function take 4 parameters, all parameters are strings:
 * file_name: the name of the configuration file.
   * Default value is *'config.txt'*
 * iCal_file: the name of the iCal file.
-  * Default value is *'...'*
+  * Default value is *'iCal_holidays.ics'*
 
 ## Configuration file
 This file contains 7 lines. Each line have the following format:  
@@ -31,6 +31,15 @@ Example:
 > Friday 9:00 12:00  
 > Saturday  
 > Sunday  
+
+## ics file
+
+The file must contain for each event:  
+* DTSTART: the first day without works, when holidays start.
+* DTEND: the last day without works, when holidays end.
+
+The format must be *YYYYMMDD*, without hour given.
+
 
 ## How to use
 ###  Command line
