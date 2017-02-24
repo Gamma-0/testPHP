@@ -1,6 +1,13 @@
 
 # README
 
+## Composer
+To get Composer, use the following command line in the root directory:  
+`curl -s https://getcomposer.org/installer | php`
+
+Then, use this command:  
+`php composer.phar update`
+
 ## Parameters
 The main function take 4 parameters, all parameters are strings:
 
@@ -14,7 +21,8 @@ The main function take 4 parameters, all parameters are strings:
 * iCal_file: the name of the iCal file.
   * Default value is *'iCal_holidays.ics'*
 
-## Configuration file
+## Files
+### Configuration file
 This file contains 7 lines. Each line have the following format:  
 *Day HH:MM HH:MM* ...
 
@@ -32,7 +40,7 @@ Example:
 > Saturday  
 > Sunday  
 
-## ics file
+### ics file
 
 The file must contain for each event:  
 * DTSTART: the first day without works, when holidays start.

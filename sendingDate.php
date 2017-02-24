@@ -1,7 +1,6 @@
 <?php
 
-include 'Composer/iCal-parser/src/EventObject.php';
-include 'Composer/iCal-parser/src/ICal.php';
+require_once 'vendor/autoload.php';
 use ICal\ICal;
 
 class Hour {
