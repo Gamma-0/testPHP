@@ -46,5 +46,5 @@ The format must be *YYYYMMDD*, without hour given.
 In a terminal, use the command line:  
 `php sendingDate.php 'YYYY-MM-DD HH:MM'`
 
-As mentioned before, there are 3 optionnal parameters to write in the order:  
+As mentioned before, there are 3 optional parameters to write in the order:  
 `php sendingDate.php 'YYYY-MM-DD HH:MM' 'HH:MM' 'config_file_name' 'iCal_file_name'`

@@ -339,7 +339,7 @@ switch (count($argv)) {
   // Always at least 1 parameters: the name of the php file.
   case 1:
     echo "Usage: php sendingDate.php 'YYYY-MM-DD HH:MM'\n";
-    echo "Optionnal: php sendingDate.php 'YYYY-MM-DD HH:MM' 'HH:MM' 'config_file_name' 'iCal_file_name'\n";
+    echo "Optional: php sendingDate.php 'YYYY-MM-DD HH:MM' 'HH:MM' 'config_file_name' 'iCal_file_name'\n";
     break;
   case 2:
     main($argv[1]);
