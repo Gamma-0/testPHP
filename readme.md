@@ -33,12 +33,9 @@ Example:
 > Sunday  
 
 ## How to use
-### PHP interactive mode
+###  Command line
 In a terminal, use the command line:  
->`php -a -d auto_prepend_file=sendingDate.php`.
+`php sendingDate.php 'YYYY-MM-DD HH:MM'`
 
-Then, use the main() function with the correct parameters.  
-Some example:
->main('2017-02-10 10:00');
-
->main('2016-08-25 10:00', '2:50');
+As mentioned before, there are 3 optionnal parameters to write in the order:  
+`php sendingDate.php 'YYYY-MM-DD HH:MM' 'HH:MM' 'config_file_name' 'iCal_file_name'`

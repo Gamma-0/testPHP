@@ -192,7 +192,6 @@ class Schedule {
     $tl = new Hour();
     for ($i = 0; $i < $size; $i++){
       $tl = $this->week[$day][$i]->time_left($hour);
-      //echo $tl->hour.':'.$tl->minute.' '.$delay->hour.':'.$delay->minute.'\n';
       if ($delay->is_sup($tl)){ // $delay < $tl
         if ($hour->is_sup($this->week[$day][$i]->begin)){
           $tl->add($this->week[$day][$i]->begin ,$delay); // $sending_hour = $this->week[$day][$i]->begin + $delay;
@@ -276,7 +275,6 @@ function calculate_date($schedule, $invoice_date, $delay /*, $iCal_file = ...*/)
       $date->add(new DateInterval('P1D'));
       $date = DateTime::createFromFormat('Y-m-d H:i', $date->format('Y-m-d').' 00:00');
       $delay_hour = $result[1];
-      //echo $delay_hour->hour.':'.$delay_hour->minute;
     } while ($result[0] == False);
   } else {
     exit("The date given in parameters is malformed.\nFormat: 'YYYY-MM-DD HH:MM'");
@@ -289,8 +287,29 @@ function main($invoice_date, $delay='4:00', $file_name = "config.txt" /*, $iCal_
   $schedule = convert_file($file_name);
   $date = calculate_date($schedule, $invoice_date, $delay /*, $iCal_file = ...*/);
 
-  echo $date->format('Y-m-d H:i');
+  echo $date->format('l').' '.$date->format('Y-m-d H:i')."\n";
 }
 
-//main('2017-02-10 10:50');
+
+
+switch (count($argv)) {
+  // Always at least 1 parameters: the name of the php file.
+  case 1:
+    echo "Usage: php sendingDate.php 'YYYY-MM-DD HH:MM'\n";
+    echo "Optionnal: php sendingDate.php 'YYYY-MM-DD HH:MM' 'HH:MM' 'config_file_name' 'iCal_file_name'\n";
+    break;
+  case 2:
+    main($argv[1]);
+    break;
+  case 3:
+    main($argv[1], $argv[2]);
+    break;
+  case 4:
+    main($argv[1], $argv[2], $argv[3]);
+    break;
+  default: // 5 or more (parameters after the 5th are ignored)
+    main($argv[1], $argv[2], $argv[3], $argv[4]);
+    break;
+}
+
 ?>
